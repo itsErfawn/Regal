@@ -1,4 +1,0 @@
-@import "tailwindcss";
-h1{
-    @apply bg-red-400;
-}
