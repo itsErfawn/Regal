@@ -16,7 +16,7 @@ function Header() {
         <div className='col-span-3 header-icons-wrapper' >
           <HambergerMenuMobile/>
           <Search/>
-          <Link href={'/'} className='max-tablet:hidden' ><ShoppingCart className='header-icons'/></Link>
+          <Link href={'/cart'} className='max-tablet:hidden' ><ShoppingCart className='header-icons'/></Link>
           <Link href={'/'} className='max-tablet:hidden' ><Heart className='header-icons'/></Link>
           <Link href={'/'} ><User className='header-icons'/></Link>
         </div>

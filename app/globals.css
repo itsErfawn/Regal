@@ -896,3 +896,252 @@ transition: var(--main-transition);
     @apply text-neutral-8;
     transition: var(--main-transition);
 }
+.compare-wrapper{
+@apply flex items-stretch justify-center gap-20 mt-5 max-tablet:gap-5 max-mobile:gap-2
+}
+.compare{
+    @apply w-3/12 relative max-laptop:w-5/12 max-mobile:w-6/12
+}
+.compare-image-wrapper{
+@apply w-full
+}
+.compare-image{
+@apply w-full h-[400px] max-mobile:h-[250px]
+}
+.compare-body{
+@apply flex items-center justify-between py-4 max-mobile:block
+}
+.compare-title{
+
+}
+.compare-price{
+
+}
+.compare-del-btn{
+@apply absolute top-2 left-2 p-2 bg-neutral-10 rounded-sm cursor-pointer
+}
+.compare-del-btn-icon{
+@apply w-5 h-5 stroke-white
+}
+.compare-empty{
+@apply w-3/12  border border-dashed border-neutral-6 flex items-center justify-center rounded-2xl max-laptop:w-5/12 max-mobile:w-6/12  h-[400px] max-mobile:h-[250px] max-mobile:rounded-sm
+}
+.compare-add-btn-wrapper{
+@apply p-4 bg-neutral-3 border border-neutral-5 rounded-md flex items-center justify-center cursor-pointer
+}
+.compare-add-btn{
+    @apply cursor-pointer
+}
+.compare-add-btn-icon{
+@apply stroke-neutral-11 w-6 h-6
+}
+.compare-table{
+@apply px-8 my-12 max-tablet:px-4 max-mobile:px-0
+}
+.compare-row{
+    @apply flex items-center gap-5 bg-neutral-1 py-5 px-4 rounded-2xl
+}
+.compare-row.even{
+    @apply bg-transparent
+}
+.compare-row_title{
+@apply text-neutral-10
+}
+.compare-row_text{
+
+}
+.compare-products-container{
+    visibility: hidden;
+    transition: var(--main-transition);
+    @apply fixed top-0 right-0 left-0 bottom-0 z-[60] flex items-center justify-center opacity-0;
+}
+.compare-products-container.active{
+    visibility: visible;
+    @apply opacity-100;
+}
+.compare-products-wrapper{
+@apply bg-white px-6 rounded-2xl w-6/12 max-laptop:w-8/12 max-tablet:w-10/12 max-mobile:w-full max-mobile:h-full max-mobile:rounded-none
+}
+.compare-products-header{
+@apply flex items-center justify-between pt-6 pb-8
+}
+.compare-products-title{
+
+}
+.compare-products-btn{
+cursor: pointer;
+}
+.compare-products-btn-icon{
+    @apply stroke-black w-6 h-6
+}
+.compare-products-search-wrapper{
+@apply w-full flex items-center p-4 border border-neutral-7 rounded-sm mb-8 max-mobile:p-2
+}
+.compare-products-search-btn{
+    cursor: pointer;
+}
+.compare-products-search-btn-icon{
+    @apply stroke-neutral-7 w-6 h-6
+}
+.compare-products-search{
+    @apply text-neutral-7 outline-none w-full px-2
+}
+.compare-products-item-wrapper{
+@apply h-[400px] overflow-y-scroll flex flex-wrap max-mobile:h-[70vh]
+}
+.compare-products-item{
+@apply w-4/12 pl-3 pb-2 max-mobile:w-6/12
+}
+.cart-wrapper{
+    @apply border-neutral-4 border p-8 rounded-2xl max-laptop:mt-4 max-tablet:border-none max-tablet:p-0
+}
+.cart-header{
+@apply flex items-center justify-between max-laptop:hidden
+}
+.cart-header-title{
+@apply text-neutral-12
+}
+.cart-body{
+
+}
+.car-item{
+@apply flex items-center justify-between py-6 border-b border-b-neutral-4 max-laptop:flex-wrap
+}
+.cart-item-block{
+
+}
+.car-item-image-wrapper{
+    @apply w-[88px] h-[88px]
+}
+.car-item-image{
+@apply w-full h-full
+}
+.cart-item-title{
+@apply text-neutral-10
+}
+.cart-item-option{
+@apply text-neutral-10
+}
+.cart-item-option-color{
+@apply text-neutral-10 flex items-center gap-2
+}
+.cart-item-option-prev{
+@apply w-5 h-5 bg-black rounded
+}
+.cart-item-special{
+@apply max-tablet:text-[14px]
+}
+.cart-item-special-price{
+@apply text-neutral-7
+}
+.cart-item-special-discount{
+@apply bg-primary text-white py-0.5 px-3 rounded-full max-tablet:px-2 max-tablet:mx-2
+}
+.cart-item-price{
+@apply text-neutral-10
+}
+.cart-item-quantity-wrapper{
+@apply flex items-center gap-2 max-tablet:justify-end
+}
+.cart-item-quantity-btn{
+@apply p-4 border-neutral-8 border rounded-sm cursor-pointer flex items-center justify-center max-tablet:p-2
+}
+.cart-item-quantity-btn-icon{
+@apply stroke-neutral-11 w-4 h-4
+}
+.cart-item-quantity-input{
+@apply px-2
+}
+.cart-item-total{
+@apply text-neutral-10
+}
+.cart-info-wrapper{
+@apply p-8 border border-neutral-4 rounded-2xl max-tablet:border-none max-tablet:p-0 max-tablet:mb-5
+}
+.cart-info-header{
+@apply flex items-center justify-between  border-b border-b-neutral-4 pb-6 max-tablet:hidden
+}
+.cart-info-title{
+
+}
+.cart-info-trash{
+    @apply stroke-primary w-6 h-6
+}
+.cart-info-body{
+    @apply border-b border-b-neutral-4 
+}
+.cart-info-body-title{
+    @apply text-neutral-13 my-6 max-tablet:border-b max-tablet:border-b-neutral-4 max-tablet:mb-3 max-tablet:pb-3
+}
+.cart-info-row{
+@apply flex items-center justify-between pb-4
+}
+.cart-info-row-text{
+@apply text-neutral-10
+}
+.cart-info-footer{
+
+}
+.cart-info-footer-text{
+@apply mt-1 text-neutral-9
+}
+.cart-info-footer-button{
+@apply mt-6 w-full
+}
+.account-side-wrapper{
+@apply px-4 py-6 border border-neutral-4 rounded-2xl
+}
+.account-side-info-wrapper{
+@apply flex gap-4 items-center justify-between
+}
+.account-side-info_image{
+    @apply w-14 h-14 rounded-full
+}
+.account-side-info_name{
+@apply text-neutral-13
+}
+.account-side-info_phone{
+@apply text-neutral-11
+}
+.account-side-menu-item{
+@apply px-2 py-3 mb-3
+}
+.account-side-menu-item_link{
+@apply flex items-center gap-2
+}
+.account-side-menu-item_link__icon{
+    @apply stroke-neutral-9 w-5 h-5
+}
+.account-side-menu-item_link__text{
+@apply text-neutral-11
+}
+.account-side-menu-item.active{
+    @apply bg-neutral-1 rounded-sm
+}
+.account-side-menu-item.active>.account-side-menu-item_link>.account-side-menu-item_link__text{
+    @apply text-black
+}
+.account-side-menu-item.active>.account-side-menu-item_link>.account-side-menu-item_link__icon{
+    @apply fill-neutral-11 stroke-white
+}
+.account-content-wrapper{
+    @apply p-6 border border-neutral-4 rounded-md h-full
+}
+.account-content-header{
+@apply flex items-center justify-between pb-8 border-b border-b-neutral-4 pt-3
+}
+.account-content-header-title{
+@apply text-neutral-13
+}
+.account-content-body{
+@apply py-6
+}
+.account-content-body-item{
+@apply w-6/12 flex items-center justify-between pb-4
+}
+.account-content-body-item-title{
+@apply text-base text-neutral-13 w-6/12
+}
+.account-content-body-item-value{
+@apply text-[14px] text-neutral-11 text-right w-6/12
+}
