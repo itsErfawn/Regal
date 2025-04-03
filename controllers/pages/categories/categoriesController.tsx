@@ -3,8 +3,8 @@ import Categoriespage from "@/views/pages/categories/Categoriespage";
 import React from "react";
 
 class CategoriesController extends Controller{
-index(){
-return this.render(<Categoriespage/>)
+async index(){
+return await  this.render(<Categoriespage/>)
 }
 }
 export default new CategoriesController()

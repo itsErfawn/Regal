@@ -30,27 +30,27 @@ function AccountSideBar({url}:{url:string|undefined}) {
                 </Link>
             </li>
             <li className={`account-side-menu-item ${url==='orders'?'active':''}`}>
-                <Link className='account-side-menu-item_link' href={'/account'}>
+                <Link className='account-side-menu-item_link' href={'/account/orders'}>
                 <Wallet2 className='account-side-menu-item_link__icon' />
                 <span className='account-side-menu-item_link__text'>پیگیری سفارشات</span>
                 </Link>
             </li>
             <li className={`account-side-menu-item ${url==='wishlist'?'active':''}`}>
-                <Link className='account-side-menu-item_link' href={'/account'}>
+                <Link className='account-side-menu-item_link' href={'/account/wishlist'}>
                 <Heart className='account-side-menu-item_link__icon' />
                 <span className='account-side-menu-item_link__text'>علاقمندی‌ها</span>
                 </Link>
             </li>
             <li className={`account-side-menu-item ${url==='address'?'active':''}`}>
-                <Link className='account-side-menu-item_link' href={'/account'}>
+                <Link className='account-side-menu-item_link' href={'/account/address'}>
                 <Location className='account-side-menu-item_link__icon' />
                 <span className='account-side-menu-item_link__text'>آدرس‌های من</span>
                 </Link>
             </li>
             <li className={`account-side-menu-item ${url==='logout'?'active':''}`}>
-                <Link className='account-side-menu-item_link' href={'/account'}>
-                <Logout className='account-side-menu-item_link__icon' />
-                <span className='account-side-menu-item_link__text'>خروج</span>
+                <Link className='account-side-menu-item_link' href={'/account/logout'}>
+                <Logout className='account-side-menu-item_link__icon !stroke-error-tint-4' />
+                <span className='account-side-menu-item_link__text !text-error-tint-4'>خروج</span>
                 </Link>
             </li>
         </ul>

@@ -18,14 +18,14 @@ interface AutoloadType {
         products: AdminController;
     };
 }
-
+export const dynamic = 'force-dynamic'
 async function page({params, searchParams}: {params: any, searchParams: any}) {
     let param=await params;
     const searchParam=await searchParams
     
     const urlParam =  param.slug;
     let [section, controller, method] = urlParam;
-
+    
     // Handle admin routes
     if (section === "admin") {
         if(!controller) return autoload.admin.home.index();

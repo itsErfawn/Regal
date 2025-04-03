@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import MegaMenu from './MegaMenu'
 
-function Menu() {
+function Menu({menuItems}:{menuItems:Array<any>}) {
     const [open,setOpen]=useState<Boolean>(false)
   return (
     <nav className='bg-neutral-1 rounded-[99px] py-2.5 border border-neutral-3 ' >
@@ -17,7 +17,7 @@ function Menu() {
                 دسته بندی ها
                 <ArrowDown2 className={`header-icons ${open?'rotate-180 ':''}`} />
                 </p>
-                <MegaMenu {...{open,setOpen}}/>
+                <MegaMenu {...{open,setOpen,menuItems}}/>
             </li>
             <li>
                 <Link className='button-3 text-neutral-11' href={'/'}>تخفیف دارها</Link>

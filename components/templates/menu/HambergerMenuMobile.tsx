@@ -3,7 +3,7 @@ import { CloseSquare, HambergerMenu } from 'iconsax-react'
 import React, { useState } from 'react'
 import MobileMenuItem from './MobileMenuItem'
 
-function HambergerMenuMobile() {
+function HambergerMenuMobile({menuItems}:{menuItems:Array<any>}) {
   const [open,setOpen]=useState<Boolean>(false)
   return (
     <>

@@ -2,8 +2,8 @@ import Controller from "@/controllers/Controller";
 import TermsPage from "@/views/pages/terms/TermsPage";
 
 class TermsController extends Controller {
-    index() {
-        return this.render(<TermsPage />)
+    async index() {
+        return await  this.render(<TermsPage />)
     }
 }
 
