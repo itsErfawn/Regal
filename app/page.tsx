@@ -1,4 +1,4 @@
-import HomeController from '@/controllers/pages/home/HomeController'
+import HomeController from '@/controllers/home/HomeController'
 
 function HomePage() {
   return HomeController.index()

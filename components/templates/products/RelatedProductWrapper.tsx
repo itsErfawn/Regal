@@ -1,9 +1,10 @@
 "use client"
 import ProductCard from '@/components/modules/products/ProductCard'
+import { ProductCardCollectionType } from '@/types'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-function RelatedProductWrapper() {
+function RelatedProductWrapper({related_product}:{related_product:ProductCardCollectionType}) {
   return (
     <div className="col-span-12 mb-10 ">
         <h2 className='my-8'>محصولات مشابه</h2>
@@ -22,13 +23,9 @@ function RelatedProductWrapper() {
             }
         }}
         >
-            <SwiperSlide><ProductCard/></SwiperSlide>
-            <SwiperSlide><ProductCard/></SwiperSlide>
-            <SwiperSlide><ProductCard/></SwiperSlide>
-            <SwiperSlide><ProductCard/></SwiperSlide>
-            <SwiperSlide><ProductCard/></SwiperSlide>
-            <SwiperSlide><ProductCard/></SwiperSlide>
-            <SwiperSlide><ProductCard/></SwiperSlide>
+            {related_product.map(product=>(
+                <SwiperSlide><ProductCard  {...{product}}/></SwiperSlide>
+            ))}
         </Swiper>
     </div>
   )

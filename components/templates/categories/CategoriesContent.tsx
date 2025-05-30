@@ -1,10 +1,24 @@
-"use client"
 import ProductCard from '@/components/modules/products/ProductCard'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { ProductCardCollectionType } from '@/types'
 import { SearchNormal } from 'iconsax-react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-function CategoriesContent() {
+function CategoriesContent({products}:{products:ProductCardCollectionType}) {
+    // const [loading,setLoading]=useState(true)
+    // const [productData,setProductData]=useState<null|ProductCardCollectionType>(null)
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //       setProductData(products);
+    //       setLoading(false);
+    //     }, 500); // مثلا نیم ثانیه لودینگ نشون بده
+      
+    //     return () => clearTimeout(timer);
+    //   }, []);
+      
+    // if(loading){
+    //     return <p>loading</p>
+    // }
     return (
         <div className="col-span-9 max-tablet:col-span-12">
             <div className=" flex items-stretch justify-between mb-5 max-tablet:hidden">
@@ -32,20 +46,9 @@ function CategoriesContent() {
                 </div>
             </div>
             <div className="flex flex-wrap">
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
-                <div className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard /></div>
+                {products.map(product=>(
+                    <div key={product.id} className="w-4/12 p-2 max-mobile:w-6/12"><ProductCard {...{product}} /></div>
+                ))}
             </div>
         </div>
     )

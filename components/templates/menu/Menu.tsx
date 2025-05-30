@@ -3,8 +3,9 @@ import {  ArrowDown2 } from 'iconsax-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import MegaMenu from './MegaMenu'
+import { CtegoriesCollectionType } from '@/types'
 
-function Menu({menuItems}:{menuItems:Array<any>}) {
+function Menu({categories}:{categories:CtegoriesCollectionType}) {
     const [open,setOpen]=useState<Boolean>(false)
   return (
     <nav className='bg-neutral-1 rounded-[99px] py-2.5 border border-neutral-3 ' >
@@ -17,7 +18,7 @@ function Menu({menuItems}:{menuItems:Array<any>}) {
                 دسته بندی ها
                 <ArrowDown2 className={`header-icons ${open?'rotate-180 ':''}`} />
                 </p>
-                <MegaMenu {...{open,setOpen,menuItems}}/>
+                <MegaMenu {...{open,setOpen,categories}}/>
             </li>
             <li>
                 <Link className='button-3 text-neutral-11' href={'/'}>تخفیف دارها</Link>

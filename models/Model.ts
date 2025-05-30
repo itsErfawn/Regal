@@ -1,23 +1,10 @@
-import { connectToDB } from "@/lib/database/db";
-import mysql from 'mysql2/promise';
+import { PrismaClient } from "@/lib/generated/prisma"
+import { v4 as uuid } from "uuid"
 
 class Model {
-    protected db: Promise<mysql.Connection>;
-
-    constructor() {
-        this.db = this.dbConnect();
-    }
-
-    private async dbConnect() {
-        return await connectToDB();
-    }
-
-    protected async getConnection() {
-        return await this.db;
-    }
-    async endConnection(){
-        (await this.db).end()
+    protected db = new PrismaClient()
+    protected CreateId() {
+        return uuid()
     }
 }
-
-export default Model;
+export default Model

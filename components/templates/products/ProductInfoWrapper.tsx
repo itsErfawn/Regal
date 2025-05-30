@@ -1,22 +1,24 @@
-'use client'
-import { Drop, Heart, Share } from 'iconsax-react'
-import React, { useState } from 'react'
+import { CloseCircle, Drop, Heart, Share } from 'iconsax-react'
+import React from 'react'
 import ProductStarWrapper from './ProductStarWrapper'
 import { WashingMachine } from 'lucide-react'
 import ProductColorWrapper from './ProductColorWrapper'
 import ProductSizeWrapper from './ProductSizeWrapper'
 import ProductsButtonWrapper from './ProductsButtonWrapper'
-function ProductInfoWrapper() {
-    const [color,setColor]=useState('')
-    const [size,setSize]=useState('')
+import { useProductContext } from '@/contexts/product/ProductContext'
+import { useProductStore } from '@/contexts/product/ProductStore'
+function ProductInfoWrapper({colors}:{colors:string[]}) {
+    const {active,setActive}=useProductStore()
+    const product=useProductContext()
+    const {message,messageHeading}=useProductStore()
   return (
     <>
     <div className="col-span-5 max-tablet:col-span-12">
-        <img src="/assets/images/product.png" className='w-full'/>
+        <img src={product?.image} className='product-image'/>
     </div>
     <div className="col-span-7 max-tablet:col-span-12">
         <div className="flex items-center justify-between max-tablet:mt-6">
-        <h3 className='product-info-title'>لباس میدی دکلته الی</h3>
+        <h3 className='product-info-title'>{product?.name}</h3>
         <div className="product-info-action-wrapper">
             <button className='product-info-action-btn btn out-line' >
                 <Share className='product-info-action-btn-icon'/>
@@ -28,10 +30,15 @@ function ProductInfoWrapper() {
         </div>
         <ProductStarWrapper/>
         <div className="product-info-price-wrapper">
-            <p className="product-info-price-old"> 300,000 تومان</p>
-            <h6 className="product-info-price"> 300,000 تومان</h6>
+            {product?.special&&product?.special>0?
+            <>
+            <p className="product-info-price-old"> {product?.price.toLocaleString()} تومان</p>
+            <h6 className="product-info-price"> {product.special.toLocaleString()} تومان</h6>
+            </>:
+            <h6 className="product-info-price"> {product?.price.toLocaleString()} تومان</h6>
+            }
         </div>
-        <p className="body-4 product-into-short-description">لباس میدی دکلته الی یکی از آیتم‌های شیک و جذاب در دنیای مد زنانه است که به‌طور خاص برای مهمانی‌ها و مناسبت‌های خاص طراحی شده است. این لباس با ظاهری زیبا و جزئیات دقیق، انتخابی ایده‌آل است.</p>
+        <p className="body-4 product-into-short-description">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد...</p>
         <div className="product-info-shAttr-wrapper">
             <div className="product-info-shAttr">
                 <WashingMachine className='product-info-shAttr-icon' />
@@ -45,11 +52,21 @@ function ProductInfoWrapper() {
                 <Drop className='product-info-shAttr-icon' />
                 <p className="product-info-shAttr-text">مقاومت در برابر آب</p>
             </div>
-            <ProductColorWrapper {...{color,setColor}} />
-            <ProductSizeWrapper {...{size,setSize}} />
+            <ProductColorWrapper {...{colors}} />
+            <ProductSizeWrapper />
             <ProductsButtonWrapper/>
         </div>
     </div>
+    <div className={`product-modal--wrapper ${active&&"active"}`} onClick={e=>{setActive(false)}}>
+    <div className="product-modal" onClick={e=>{e.stopPropagation()}}>
+            <div className="product-modal_header">
+                <p className='product-modal_header_title' >{messageHeading}</p>
+                <button className='product-modal_header_btn' onClick={e=>{e.stopPropagation();setActive(false)}} ><CloseCircle/></button>
+            </div>
+            <div className="product-modal_body"><p className='product-modal_body_message' >{message}</p></div>
+        </div>
+    </div>
+    <div className={`bg-overlay !z-30 !top-0 flex items-center justify-center ${active&&"active"}`} onClick={e=>{e.stopPropagation();setActive(false)}}></div>
     </>
   )
 }

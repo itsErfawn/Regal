@@ -1,15 +1,13 @@
-import AdminHomeController from "@/controllers/admin/AdminHomeController";
-import AdminController from "@/controllers/AdminController";
-import AboutController from "@/controllers/pages/about/AboutController";
-import AccountController from "@/controllers/pages/account/AccountController";
-import BlogsController from "@/controllers/pages/blogs/BlogsController";
-import CartController from "@/controllers/pages/cart/CartController";
-import categoriesController from "@/controllers/pages/categories/categoriesController";
-import CompareController from "@/controllers/pages/compare/CompareController";
-import HomeController from "@/controllers/pages/home/HomeController";
-import privaceController from "@/controllers/pages/privacy/privaceController";
-import ProductsController from "@/controllers/pages/products/ProductsController";
-import TermsController from "@/controllers/pages/terms/TermsController";
+import AboutController from "@/controllers/about/AboutController";
+import AccountController from "@/controllers/account/AccountController";
+import BlogsController from "@/controllers/blogs/BlogsController";
+import CartController from "@/controllers/cart/CartController";
+import categoriesController from "@/controllers/categories/categoriesController";
+import CompareController from "@/controllers/compare/CompareController";
+import HomeController from "@/controllers/home/HomeController";
+import privaceController from "@/controllers/privacy/privaceController";
+import ProductsController from "@/controllers/products/ProductsController";
+import TermsController from "@/controllers/terms/TermsController";
 const Routes={
     home:HomeController,
     products:ProductsController,
@@ -22,7 +20,7 @@ const Routes={
     account:AccountController,
     blogs:BlogsController,
     admin:{
-        home:AdminHomeController,
+        home:HomeController,
     }
 }
 

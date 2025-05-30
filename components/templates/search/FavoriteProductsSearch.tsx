@@ -31,21 +31,27 @@ function FavoriteProductsSearch() {
         }}
         >
             <SwiperSlide>
+            {/*  @ts-ignore */}
                 <ProductCard/>
             </SwiperSlide>
             <SwiperSlide>
+            {/*  @ts-ignore */}
                 <ProductCard/>
             </SwiperSlide>
             <SwiperSlide>
+            {/*  @ts-ignore */}
                 <ProductCard/>
             </SwiperSlide>
             <SwiperSlide>
+            {/*  @ts-ignore */}
                 <ProductCard/>
             </SwiperSlide>
             <SwiperSlide>
+            {/*  @ts-ignore */}
                 <ProductCard/>
             </SwiperSlide>
             <SwiperSlide>
+            {/*  @ts-ignore */}
                 <ProductCard/>
             </SwiperSlide>
         </Swiper>

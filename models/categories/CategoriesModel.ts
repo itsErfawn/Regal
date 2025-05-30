@@ -1,11 +1,35 @@
-import { QueryResult } from "mysql2";
+import { CtegoriesCollectionType } from "@/types";
 import Model from "../Model";
+import { CategoryInterFace } from "@/types/categories";
 
-class CategoriesModel extends Model{
-async getCategoriesHeader():Promise<QueryResult>{
-    const db=await this.getConnection()
-    const [rows]=await db.execute("SELECT parent_categories.name AS name,parent_categories.url AS url, JSON_ARRAYAGG( JSON_OBJECT( 'id', child_categories.id, 'name', child_categories.name, 'parent', child_categories.parent, 'url', child_categories.url, 'image', child_categories.image ) ) AS children FROM categories AS parent_categories LEFT JOIN categories AS child_categories ON parent_categories.id = child_categories.parent WHERE parent_categories.parent = 0 GROUP BY parent_categories.id")
-    return rows
+class CategoriesModel extends Model {
+    async getCategories() {
+        const mainCategories = await this.db.categories.findMany({
+            where: {
+                parent_id: 0,
+            },
+        });
+// @ts-ignore
+const categoriesWithChildren = await Promise.all(
+    mainCategories.map(async (category) => {
+        const children = await this.db.categories.findMany({
+            where: {
+                parent_id: category.id,
+            },
+        });
+        
+        return { ...category, children };
+    })
+) as CtegoriesCollectionType ;
+return categoriesWithChildren;
 }
+async getCategory(url:string){
+        // @ts-ignore
+        return await this.db.categories.findFirst({
+            where:{
+                url
+            }
+        }) as CategoryInterFace
+    }
 }
 export default new CategoriesModel();

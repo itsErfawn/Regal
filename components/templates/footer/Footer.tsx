@@ -39,7 +39,7 @@ function Footer() {
                         <li className="footer-menu-item"><Link href={'/'} >سرهمی</Link></li>
                     </ul>
                     <ul className="footer-menu">
-                        <h6 className='footer-menu-title'>ارتباط با ما</h6>
+                        <h6 className='footer-menu-title'><Link href={'/'}>ارتباط با ما</Link></h6>
                         <li className="footer-menu-item"><Link href={'/'}>تماس با ما</Link></li>
                         <li className="footer-menu-item"><Link href={'/'} >درباره ما</Link></li>
                         <li className="footer-menu-item"><Link href={'/'} >چت آنلاین با طراح</Link></li>

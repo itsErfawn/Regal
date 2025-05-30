@@ -9,6 +9,9 @@ function HomeBannerSlider() {
     slidesPerView={2.1}
     spaceBetween={10}
     breakpoints={{
+        992:{
+            slidesPerView:3.2
+        },
         768:{
             slidesPerView:2.5
         },

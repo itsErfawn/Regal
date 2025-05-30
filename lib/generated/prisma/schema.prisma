@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../lib/database/database.db"
+}
+
+model address {
+  id               Int      @id @default(autoincrement())
+  customer_id      String
+  postal_code      Int
+  province         String
+  city             String
+  address          String
+  detailed_address String
+  customer_name    String   @default("")
+  customer_number  String   @default("")
+  customer         customer @relation(fields: [customer_id], references: [id])
+}
+
+model cart {
+  id          Int    @id @default(autoincrement())
+  quantity    Int
+  customer_id String
+  product_id  String
+  color       String
+  size        String
+}
+
+model categories {
+  id        Int     @id
+  name      String
+  url       String
+  parent_id Int?    @default(0)
+  image     String?
+}
+
+model colors {
+  id    Int    @id @default(autoincrement())
+  color String
+}
+
+model customer {
+  id            String    @id
+  name          String?
+  family        String?
+  number        String?   @unique
+  email         String?
+  geust         Boolean
+  created_at    DateTime?
+  created_at_fa String?
+  address       address[]
+}
+
+model otp {
+  id         Int      @id @default(autoincrement())
+  serial     Int
+  number     String   @unique
+  expired_at DateTime
+}
+
+model products {
+  id          String  @id
+  name        String
+  url         String
+  image       String
+  price       Float
+  special     Int     @default(0)
+  warranty    String?
+  rate        Float?
+  category    Int
+  description String?
+  quantity    Int
+}
+
+model sizes {
+  id   Int    @id @default(autoincrement())
+  size String
+}
+
+model compare {
+  id          Int    @id @default(autoincrement())
+  product_id  String
+  customer_id String
+}

@@ -1,10 +1,10 @@
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
-import Province_Cities from '@/lib/cities/CitiesUtil';
+import Province_Cities, { ProvinceKey } from '@/lib/cities/CitiesUtil';
 import { CloseCircle } from 'iconsax-react'
 import React, { useState } from 'react'
 function AccountAddressAdd({active,setActive}:{active:boolean,setActive:(active:boolean)=>void}) {
     const [me,setMe]=useState(false)
-    const [city,setCity]=useState(null)
+    const [city, setCity] = useState<string[] | null>(null);
     const provinces=generateProvinces()
   return (
     <>
@@ -19,9 +19,8 @@ function AccountAddressAdd({active,setActive}:{active:boolean,setActive:(active:
                 <textarea name="" placeholder='آدرس کامل' className='address-form-area'></textarea>
                 <div className="address-form-input-container">
                 <div className="address-form-input-wrapper">
-                <Select onValueChange={e=>{
+                <Select onValueChange={(e:ProvinceKey)=>{
                     setCity(Province_Cities[e].cities)
-                    
                 }}>
                     <SelectTrigger className="address-form-input"  >
                         <SelectValue placeholder="استان" />
@@ -81,7 +80,8 @@ function AccountAddressAdd({active,setActive}:{active:boolean,setActive:(active:
 function generateProvinces():Array<{value:string,title:string}>{
     let ProvinceArray=[]
     for(let pr in Province_Cities){
-        ProvinceArray.push({value:pr,title:Province_Cities[pr].title})
+        const key = pr as ProvinceKey;
+        ProvinceArray.push({value:pr,title:Province_Cities[key].title})
     }
     return ProvinceArray
 }

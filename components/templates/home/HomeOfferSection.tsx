@@ -2,8 +2,10 @@ import Container from '@/components/modules/container/Container'
 import { DiscountShape } from 'iconsax-react'
 import React from 'react'
 import HomeOfferSlider from './HomeOfferSlider'
+import { ProductCardCollectionType } from '@/types';
 
-function HomeOfferSection() {
+function HomeOfferSection({products}:{products:ProductCardCollectionType}) {
+  if(!products)return;
   return (
     <div className='mt-16' >
         <Container>
@@ -12,7 +14,7 @@ function HomeOfferSection() {
                 محصولات تخفیف‌دار
             </h2>
             <div className="col-span-12">
-            <HomeOfferSlider/>
+            <HomeOfferSlider products={products}/>
             </div>
         </Container>
     </div>

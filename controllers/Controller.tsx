@@ -1,22 +1,14 @@
 import React, { JSX } from 'react';
-import HomeLayout from '@/layouts/home/layout';
+import HomeLayout from '@/layouts/layout';
 import Header from '@/components/templates/header/Header';
 import Footer from '@/components/templates/footer/Footer';
-import CookieStore from '@/lib/cookies/CookieStore';
-import { tokenVerifier } from '@/lib/token/Token';
 
 class Controller {
-    protected async render(data: JSX.Element): Promise<JSX.Element> {
-        let isLogin=true
-        const token=await CookieStore.get('token')
-        
-        if(!token||!tokenVerifier(token.value)){
-            isLogin=false
-        }
+    protected render(data: JSX.Element): JSX.Element {
         return (
             <HomeLayout>
                 <>
-                    <Header {...{isLogin}} />
+                    <Header/>
                     {data}
                     <Footer/>
                 </>

@@ -1,4 +1,25 @@
-const Province_Cities:object = {
+export type ProvinceKey =
+  | 'esfahan'
+  | 'tehran'
+  | 'mazandaran'
+  | 'khuzestan'
+  | 'fars'
+  | 'gilan'
+  | 'yazd'
+  | 'kerman'
+  | 'khorasan_razavi'
+  | 'azarbaijan_sharghi'
+  | 'azarbaijan_gharbi'
+  | 'kermanshah'
+  | 'zanjan'
+  | 'semnan'
+  | 'ilam';
+
+type ProvinceInfo = {
+  title: string;
+  cities: string[];
+};
+const Province_Cities: Record<ProvinceKey, ProvinceInfo> = {
     esfahan: {
         title: 'اصفهان',
         cities: ['خمینی‌شهر', 'اصفهان', 'ملک‌شهر', 'شاهین‌شهر', 'فولادشهر', 'زرین‌شهر', 'کاشان', 'نجف‌آباد', 'آران و بیدگل', 'گلپایگان', 'مبارکه', 'سمیرم', 'فریدون‌شهر', 'چادگان', 'خور']

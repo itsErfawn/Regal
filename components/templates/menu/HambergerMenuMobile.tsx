@@ -2,8 +2,9 @@
 import { CloseSquare, HambergerMenu } from 'iconsax-react'
 import React, { useState } from 'react'
 import MobileMenuItem from './MobileMenuItem'
+import { CtegoriesCollectionType } from '@/types'
 
-function HambergerMenuMobile({menuItems}:{menuItems:Array<any>}) {
+function HambergerMenuMobile({categories}:{categories:CtegoriesCollectionType}) {
   const [open,setOpen]=useState<Boolean>(false)
   return (
     <>
@@ -16,10 +17,9 @@ function HambergerMenuMobile({menuItems}:{menuItems:Array<any>}) {
       }
       </button>
     <div className={`mobile-menu ${open?'active':''} `}>
-    <MobileMenuItem/>
-    <MobileMenuItem/>
-    <MobileMenuItem/>
-    <MobileMenuItem/>
+    {categories.map(category=>(
+      <MobileMenuItem category={category} key={category.id}/>
+    ))}
     </div>
     <div className={`bg-overlay tablet:hidden ${open?'active':''}`} onClick={e=>{setOpen(false)}} ></div>
     </>

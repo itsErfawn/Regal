@@ -1,14 +1,15 @@
 import React from 'react';
 import ProductColorItem from './ProductColorItem';
-
-function ProductColorWrapper({ color, setColor }: { color: string; setColor: (newColor: string) => void }) {
+import { useProductStore } from '@/contexts/product/ProductStore';
+function ProductColorWrapper({colors}: {colors:string[]}) {
+  const {color,setColor}=useProductStore()
   return (
     <div>
       <p className="mb-1 max-tablet:mb-4">رنگبندی</p>
       <div className="product-color-wrapper">
-        <ProductColorItem {...{mainColor:'red',color,setColor}} />
-        <ProductColorItem {...{mainColor:'blue',color,setColor}} />
-        <ProductColorItem {...{mainColor:'green',color,setColor}} />
+        {colors.map(clr=>(
+          <ProductColorItem key={clr} {...{mainColor:clr,color,setColor}} />
+        ))}
       </div>
     </div>
   );

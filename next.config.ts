@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     staleTimes:{
       dynamic:0,
     }
-  }
+  },
 };
 
 export default nextConfig;
