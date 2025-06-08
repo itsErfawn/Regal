@@ -1,6 +1,6 @@
 # 🛍️ Regal - Advanced Online Store
 
-Regal is an e-commerce website built with **Next.js**, **TypeScript**, **ShadCN**, **Tailwind CSS**, and **MySQL**. The project follows the **MVC** architecture and provides a robust solution for managing complex server-side structure.
+Regal is an e-commerce website built with **Next.js**, **TypeScript**, **ShadCN**, **Tailwind CSS**, and **Sqlite**. The project follows the **MVC** architecture and provides a robust solution for managing complex server-side structure.
 
 ---
 
