@@ -1,21 +1,24 @@
+import { blogType } from '@/types/blogs'
 import Link from 'next/link'
 import React from 'react'
 
-function BlogCard() {
+function BlogCard({blog}:{blog:blogType}) {
+  let tags=blog.tags.split(',')
   return (
-    <Link href={'/'} className='blog-card' >
+    <Link href={`/blogs/${blog.title.replace(/ /g, '-')}`} className='blog-card' >
         <img src="/assets/images/blog.png" className='blog-card-image'  />
         <div className="px-4">
-        <h6 className='blog-card-title ' >انتخاب لباس‌های زنانه در هر فصل</h6>
-        <p className='body-4 text-neutral-10' >در تابستان از پارچه‌های نخی و سبک استفاده کنید که نفس‌گیر هستند و در زمستان از پارچه‌های گرم مانند پشم و مخمل که گرمای بدن را حفظ می‌کنند.</p>
+        <h6 className='blog-card-title ' >{blog.title}</h6>
+        <p className='body-4 text-neutral-10' >{blog.summery}</p>
             <p className='caption-1 blog-card-caption' >
-            ۱۴ شهریور
-            |
-            ۱۰ دقیقه
+            {blog.date_added}
+            <span className='px-2' >|</span>
+            {blog.read_time} دقیقه
             </p>
         <div className="blog-card-tag-wrapper">
-            <p className='caption-2 blog-card-tag' >استایل</p>
-            <p className='caption-2 blog-card-tag' >انتخاب پارچه</p>
+          {tags.map(tag=>(
+            <p key={Math.random()} className='caption-2 blog-card-tag' >{tag}</p>
+          ))}
         </div>
         </div>
     </Link>

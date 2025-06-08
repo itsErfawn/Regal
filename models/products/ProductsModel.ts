@@ -3,7 +3,7 @@ import Model from "../Model";
 
 class ProductsModel extends Model{
 async getProductsByCategory(category_id:number,limit?:number) {
-return await this.db.products.findMany({
+return await this.db.product.findMany({
     where:{
         category:category_id
     },
@@ -11,7 +11,7 @@ return await this.db.products.findMany({
 })
 }
 async getSpecialProducts(limit:number){
-    return await this.db.products.findMany({
+    return await this.db.product.findMany({
         where:{
             special:{
                 gt:0
@@ -29,14 +29,14 @@ async getSpecialProducts(limit:number){
     }) as ProductCardCollectionType
 }
 async getProduct(url:string){
-return await this.db.products.findFirst({
+return await this.db.product.findFirst({
     where:{
         url:decodeURI(url)
     }
 }) as ProductInterFace
 }
 async getRelatedProducts(category:number,id:string){
-    return await this.db.products.findMany({
+    return await this.db.product.findMany({
         where:{
             category,
             NOT:{

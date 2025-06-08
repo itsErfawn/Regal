@@ -1329,10 +1329,17 @@ h6 {
 .cart-body {}
 
 .car-item {
-    @apply flex items-center justify-between py-6 border-b border-b-neutral-4 max-laptop:flex-wrap
+    @apply flex items-center justify-between py-6 border-b border-b-neutral-4 max-laptop:flex-wrap ;
+    &:last-child{
+        @apply border-none;
+    }
 }
 
-.cart-item-block {}
+.cart-item-block {
+    /* @apply flex flex-col items-center ; */
+    flex-grow: 1;
+    align-content: center;
+}
 
 .car-item-image-wrapper {
     @apply w-[88px] h-[88px]
@@ -1343,7 +1350,7 @@ h6 {
 }
 
 .cart-item-title {
-    @apply text-neutral-10
+    @apply text-neutral-10 truncate w-30
 }
 
 .cart-item-option {

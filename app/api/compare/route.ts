@@ -14,7 +14,14 @@ export async function POST(req: Request) {
     }, { status: 400 });
   }
 
-  const userToken = await CookieStore.get("user_token") || await CookieStore.get("geust_token");
+  const userToken = await CookieStore.get("user_token");
+  if(!userToken){
+    return NextResponse.json({
+      success:false,
+      message:"برای اضافه کردن محصول به لیست علاقه مندی لطفا ابتدا ثبت نام کنید",
+      heading:"نیاز به ورود"
+    },{status:401})
+  }
   const tokenVal = userToken?.value ? tokenVerifier(userToken.value) as { id: string } : null;
 
   if (!userToken || !tokenVal) {

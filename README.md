@@ -1,46 +1,48 @@
-# 🛍️ Regal - فروشگاه آنلاین پیشرفته
+# 🛍️ Regal - Advanced Online Store
 
-پروژه Regal یک وبسایت فروشگاهی است که بر پایه **Next.js**، **TypeScript**، **ShadCN**، **Tailwind CSS** و **MySQL** طراحی شده است. این پروژه بر معماری **MVC** مبتنی است و راه‌حلی برای مدیریت ساختار سمت سرور در پروژه‌های پیچیده ارائه می‌دهد.
-
----
-
-## ✨ ویژگی‌های برجسته
-
-- 🏗️ **معماری MVC در Next.js**: تمامی قسمت‌های پروژه به‌صورت ماژولار و مرتب سازمان‌دهی شده‌اند.
-- ⚡ **تمرکز بر Backend**: ساختاری ساده برای سمت سرور که از ایجاد صدها پوشه غیرضروری جلوگیری می‌کند.
-- 🔀 **مسیر‌دهی هوشمند**: همه صفحات به پوشه `app/[...slug]` ارجاع داده می‌شوند و در آنجا تصمیم گرفته می‌شود که کدام کنترلر فراخوانی شود.
-- 🔧 **کنترلرهای ماژولار**: تمام کنترلرها در پوشه `controllers` ذخیره شده‌اند و امکان استفاده از Middleware در آن‌ها وجود دارد.
-- 🌀 **autoload.ts**: سیستمی برای مدیریت و تعریف Route‌ها به‌صورت خودکار و منعطف.
-- 🚀 **روش‌های جایگزین برای صفحات Loading**: به جای ایجاد فایل‌های جداگانه نظیر `loading.tsx`، می‌توانید از یک تابع Loading استفاده کرده و آن را در `Suspense` یا کامپوننت‌های مشابه به‌کار ببرید.
+Regal is an e-commerce website built with **Next.js**, **TypeScript**, **ShadCN**, **Tailwind CSS**, and **MySQL**. The project follows the **MVC** architecture and provides a robust solution for managing complex server-side structure.
 
 ---
 
-## 📚 ساختار پروژه
+## ✨ Key Features
 
-1. **پوشه `app`**:
-   - تمام صفحات به `app/[...slug]` ارسال می‌شوند.
-   - مدیریت درخواست‌ها و هدایت آن‌ها به کنترلر مناسب.
-2. **پوشه `controllers`**:
-   - شامل کنترلرهای مختلف برای مدیریت لاجیک سمت سرور.
-   - امکان تعریف Middleware برای هر کنترلر.
-3. **فایل `autoload.ts`**:
-   - مدیریت تمام Route‌ها در قالب یک آبجکت.
-   - تقسیم‌بندی Route‌ها بر اساس کنترلرها برای ساده‌تر کردن مدیریت.
+- 🏗️ **MVC Architecture in Next.js**: The entire project is modular and well-organized.  
+- ⚡ **Backend Focused**: A simple structure for the server side that avoids creating hundreds of unnecessary folders.  
+- 🔀 **Smart Routing**: All pages are routed to `app/[...slug]`, where the appropriate controller is determined.  
+- 🔧 **Modular Controllers**: All controllers are stored in the `controllers` folder, supporting middleware usage.  
+- 🌀 **autoload.ts**: A system for managing and defining routes automatically and flexibly.  
+- 🚀 **Alternative Loading Methods**: Instead of separate files like `loading.tsx`, you can use a loading function within `Suspense` or similar components.
 
 ---
 
-## 📋 نکات کلیدی
+## 📚 Project Structure
 
-- 📂 مشکل بزرگ در پروژه‌های Next.js با مسیر‌های زیاد (Route‌ها) حل شده است؛ به‌جای ایجاد صدها پوشه، از ساختار ساده و کاربردی استفاده شده است.
-- 🔗 **مسیر‌دهی نمونه**:
-  - درخواست `/products/categories` به کنترلر `products` و متد `categories` ارسال می‌شود.
-- 🛠️ امکان استفاده از روش‌های جایگزین برای صفحات لودینگ در پروژه ذکر شده است. مستندات Next.js نیز برای راهنمایی در این زمینه موجود هستند.
+1. **`app` folder**:  
+   - All pages route to `app/[...slug]`.  
+   - Handles requests and dispatches them to the appropriate controller.  
+
+2. **`controllers` folder**:  
+   - Contains various controllers managing server-side logic.  
+   - Supports defining middleware per controller.  
+
+3. **`autoload.ts` file**:  
+   - Manages all routes in a single object.  
+   - Categorizes routes by controller for easier management.
 
 ---
 
-## 🏃‍♂️ شروع سریع
+## 📋 Important Notes
 
-برای اجرای پروژه، دستور زیر را در ترمینال اجرا کنید:
+- 📂 Solves the common issue in large Next.js projects with numerous routes; instead of creating hundreds of folders, it uses a simple and practical structure.  
+- 🔗 **Example routing**:  
+  - The request `/products/categories` is routed to the `products` controller and its `categories` method.  
+- 🛠️ Supports alternative ways to handle loading pages. Next.js documentation is available for guidance.
+
+---
+
+## 🏃‍♂️ Quick Start
+
+To run the project, execute the following command in your terminal:
 
 ```bash
 npm run dev

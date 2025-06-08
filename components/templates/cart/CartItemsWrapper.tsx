@@ -1,7 +1,9 @@
 import React from 'react'
 import CartItem from './CartItem'
+import { useCartContext } from '@/contexts/cart/CartContext'
 
 function CartItemsWrapper() {
+  const carts=useCartContext()
   return (
     <div className="cart-wrapper">
         <div className="cart-header">
@@ -11,11 +13,9 @@ function CartItemsWrapper() {
             <h6 className="cart-header-title">جمع کل</h6>
         </div>
         <div className="cart-body">
-            <CartItem/>
-            <CartItem/>
-            <CartItem/>
-            <CartItem/>
-            <CartItem/>
+          {carts?.map(cart=>(
+            <CartItem key={cart.id} cart={cart}/>
+          ))}
         </div>
     </div>
   )

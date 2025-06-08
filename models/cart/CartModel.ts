@@ -1,3 +1,4 @@
+import { CartCollectionType, CartType } from "@/types/cart";
 import Model from "../Model";
 
 class CartModel extends Model{
@@ -18,6 +19,17 @@ await this.db.cart.create({
         customer_id
     }
 })
+}
+async getCart(customer_id:string){
+    const cart=await this.db.cart.findMany({
+        where:{
+            customer_id
+        },
+        include:{
+            product:true
+        }
+    }) as CartCollectionType
+    return cart
 }
 }
 export default new CartModel()

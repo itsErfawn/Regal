@@ -8,42 +8,56 @@ datasource db {
   url      = "file:../lib/database/database.db"
 }
 
-model address {
-  id               Int      @id @default(autoincrement())
+model Address {
+  id               Int    @id @default(autoincrement())
   customer_id      String
   postal_code      Int
   province         String
   city             String
   address          String
   detailed_address String
-  customer_name    String   @default("")
-  customer_number  String   @default("")
-  customer         customer @relation(fields: [customer_id], references: [id])
+  customer_name    String @default("")
+  customer_number  String @default("")
+
+  customer Customer @relation(fields: [customer_id], references: [id])
+
+  @@map("address")
 }
 
-model cart {
+model Cart {
   id          Int    @id @default(autoincrement())
   quantity    Int
   customer_id String
   product_id  String
   color       String
   size        String
+
+  customer Customer @relation(fields: [customer_id], references: [id])
+  product  Product  @relation(fields: [product_id], references: [id])
+
+  @@map("cart")
 }
 
-model categories {
+model Category {
   id        Int     @id
   name      String
   url       String
   parent_id Int?    @default(0)
   image     String?
+
+  products Product[]
+
+  @@map("categories")
 }
 
-model colors {
+model Color {
   id    Int    @id @default(autoincrement())
   color String
+
+  @@map("colors")
 }
 
-model customer {
+model Customer {
   id            String    @id
   name          String?
   family        String?
@@ -52,17 +66,24 @@ model customer {
   geust         Boolean
   created_at    DateTime?
   created_at_fa String?
-  address       address[]
+
+  addresses Address[]
+  carts     Cart[]
+  compares  Compare[]
+
+  @@map("customer")
 }
 
-model otp {
+model Otp {
   id         Int      @id @default(autoincrement())
   serial     Int
   number     String   @unique
   expired_at DateTime
+
+  @@map("otp")
 }
 
-model products {
+model Product {
   id          String  @id
   name        String
   url         String
@@ -74,15 +95,39 @@ model products {
   category    Int
   description String?
   quantity    Int
+
+  carts       Cart[]
+  compares    Compare[]
+  categoryRel Category  @relation(fields: [category], references: [id]) // 👈 اضافه شد
+
+  @@map("products")
 }
 
-model sizes {
+model Size {
   id   Int    @id @default(autoincrement())
   size String
+
+  @@map("sizes")
 }
 
-model compare {
+model Compare {
   id          Int    @id @default(autoincrement())
   product_id  String
   customer_id String
+
+  product  Product  @relation(fields: [product_id], references: [id])
+  customer Customer @relation(fields: [customer_id], references: [id])
+
+  @@map("compare")
+}
+
+model Blog {
+  id         Int    @id @default(autoincrement())
+  title      String
+  author     String
+  summery    String
+  content    String
+  read_time  String
+  tags       String
+  date_added String
 }

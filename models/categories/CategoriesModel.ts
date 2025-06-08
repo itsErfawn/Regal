@@ -4,7 +4,7 @@ import { CategoryInterFace } from "@/types/categories";
 
 class CategoriesModel extends Model {
     async getCategories() {
-        const mainCategories = await this.db.categories.findMany({
+        const mainCategories = await this.db.category.findMany({
             where: {
                 parent_id: 0,
             },
@@ -12,7 +12,7 @@ class CategoriesModel extends Model {
 // @ts-ignore
 const categoriesWithChildren = await Promise.all(
     mainCategories.map(async (category) => {
-        const children = await this.db.categories.findMany({
+        const children = await this.db.category.findMany({
             where: {
                 parent_id: category.id,
             },
@@ -25,7 +25,7 @@ return categoriesWithChildren;
 }
 async getCategory(url:string){
         // @ts-ignore
-        return await this.db.categories.findFirst({
+        return await this.db.category.findFirst({
             where:{
                 url
             }

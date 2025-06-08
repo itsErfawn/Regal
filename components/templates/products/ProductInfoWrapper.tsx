@@ -1,5 +1,5 @@
-import { CloseCircle, Drop, Heart, Share } from 'iconsax-react'
-import React from 'react'
+import { CloseCircle, Drop, Heart, Share, TickSquare, UserTick } from 'iconsax-react'
+import React, { useState } from 'react'
 import ProductStarWrapper from './ProductStarWrapper'
 import { WashingMachine } from 'lucide-react'
 import ProductColorWrapper from './ProductColorWrapper'
@@ -11,6 +11,13 @@ function ProductInfoWrapper({colors}:{colors:string[]}) {
     const {active,setActive}=useProductStore()
     const product=useProductContext()
     const {message,messageHeading}=useProductStore()
+    const [tick,setTick]=useState(false)
+    function copyHandler(){
+        navigator.clipboard.writeText(location.href).then(()=>{setTick(true)})
+        setTimeout(() => {
+            setTick(false)
+        }, 2500);
+    }
   return (
     <>
     <div className="col-span-5 max-tablet:col-span-12">
@@ -20,10 +27,10 @@ function ProductInfoWrapper({colors}:{colors:string[]}) {
         <div className="flex items-center justify-between max-tablet:mt-6">
         <h3 className='product-info-title'>{product?.name}</h3>
         <div className="product-info-action-wrapper">
-            <button className='product-info-action-btn btn out-line' >
-                <Share className='product-info-action-btn-icon'/>
+            <button className='product-info-action-btn btn out-line' onClick={copyHandler} >
+                {tick?<TickSquare className='product-info-action-btn-icon'/>:<Share className='product-info-action-btn-icon'/>}
             </button>
-            <button className='product-info-action-btn btn out-line ' >
+            <button className='product-info-action-btn btn out-line '>
                 <Heart className='product-info-action-btn-icon'/>
             </button>
         </div>
@@ -70,5 +77,4 @@ function ProductInfoWrapper({colors}:{colors:string[]}) {
     </>
   )
 }
-
 export default ProductInfoWrapper

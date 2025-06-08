@@ -21,10 +21,10 @@ function Menu({categories}:{categories:CtegoriesCollectionType}) {
                 <MegaMenu {...{open,setOpen,categories}}/>
             </li>
             <li>
-                <Link className='button-3 text-neutral-11' href={'/'}>تخفیف دارها</Link>
+                <Link className='button-3 text-neutral-11' href={'/blogs'}>مقالات</Link>
             </li>
             <li>
-                <Link className='button-3 text-neutral-11' href={'/'}>درباره ما</Link>
+                <Link className='button-3 text-neutral-11' href={'/about'}>درباره ما</Link>
             </li>
         </ul>
     </nav>

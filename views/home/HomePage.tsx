@@ -6,8 +6,9 @@ import HomeCustomSection from "@/components/templates/home/HomeCustomSection";
 import HomeOfferSection from "@/components/templates/home/HomeOfferSection";
 import HomeReviewSection from "@/components/templates/home/HomeReviewSection";
 import { ProductCardCollectionType } from "@/types";
+import { blogCollectionType } from "@/types/blogs";
 
-function HomePage({data}:{data:{specialProducts:ProductCardCollectionType}}) {
+function HomePage({data}:{data:{specialProducts:ProductCardCollectionType,blogs:blogCollectionType}}) {
   return (
     <>
       <HomeBannerSection />
@@ -16,7 +17,7 @@ function HomePage({data}:{data:{specialProducts:ProductCardCollectionType}}) {
       <HomeOfferSection products={data.specialProducts} />
       <HomeAboutSection/>
       <HomeReviewSection/>
-      <HomeBlogSection/>
+      <HomeBlogSection {...{blogs:data.blogs}} />
     </>
   );
 }
